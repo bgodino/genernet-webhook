@@ -1,3 +1,4 @@
+console.log('🟢 Petición recibida:', req.body);
 const express = require("express");
 const bodyParser = require("body-parser");
 
@@ -6,6 +7,7 @@ app.use(bodyParser.json());
 
 app.post("/presupuesto", (req, res) => {
   const { dni, capital } = req.body;
+  console.log('📥 DNI recibido:', dni);
 
   if (!dni || !capital) {
     return res.status(400).json({ error: "DNI y capital son obligatorios" });
